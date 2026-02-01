@@ -1,5 +1,119 @@
----
-title: "README"
-output: html_document
----
+# pasmnmrse
 
+Tools to support the **PAS-effectmonitoring** assignment for the INBO Research Software Engineer selection.
+
+This package provides reusable functions to:
+
+-   Read spatial sample datasets from different *poc* versions
+-   Filter by meetnet (`scheme`) and waterhuishoudingsklassen (`hydr_class`)
+-   Summarise sample sizes by column (default `stratum`)
+-   Compare sample sizes across versions
+-   Visualise differences over versions with a dumbbell plot
+
+------------------------------------------------------------------------
+
+## Installation
+
+Clone the repository and install locally:
+
+``` r
+devtools::install()
+```
+
+Or load directly during development:
+
+``` r
+devtools::load_all()
+```
+
+------------------------------------------------------------------------
+
+## Required dependency: n2khab
+
+This package depends on the INBO package n2khab to obtain hydrological classes for Natura 2000 habitat types.
+
+Install it via INBO's r-universe:
+
+``` r
+install.packages(
+  "n2khab",
+  repos = c(
+    inbo = "https://inbo.r-universe.dev",
+    CRAN = "https://cloud.r-project.org"
+  )
+)
+```
+
+------------------------------------------------------------------------
+
+## Downloading the PAS spatial sample data
+
+The PAS-effectmonitoring spatial sample datasets are provided in a public Google Drive folder.
+
+You can obtain the data in two ways:
+
+### Option 1 (recommended): Manual download
+
+The simplest and most robust approach is to download the Google Drive folder manually and place the extracted version folders inside:
+
+```         
+data
+```
+
+For example:
+
+```         
+data/poc_0.13.1/samples/spatial_samples.csv
+data/poc_0.14.0/samples/spatial_samples.csv
+```
+
+This approach avoids authentication issues and ensures the package runs on any machine.
+
+------------------------------------------------------------------------
+
+### Option 2: Download via the provided helper function
+
+The package includes a convenience function:
+
+``` r
+download_all_poc_spatial_samples()
+```
+
+This uses the optional dependency **googledrive** to download all required versions automatically.
+
+Example usage can be found in:
+
+```         
+analysis/00_download_data.R
+```
+
+To use this method, install googledrive first:
+
+``` r
+install.packages("googledrive")
+```
+
+Then run:
+
+``` r
+library(pasmnmrse)
+
+download_all_poc_spatial_samples()
+```
+
+------------------------------------------------------------------------
+
+## Package structure
+
+-   `R/` contains reusable package functions
+-   `data/` contains example spatial sample CSVs
+-   `analysis/` contains runnable scripts reproducing assignment outputs
+
+------------------------------------------------------------------------
+
+## Assignment
+
+The solution for both assignments can be found in the folder 'analysis':
+
+-   01_run_assignment_1.R
+-   02_run_assignment_2.R
