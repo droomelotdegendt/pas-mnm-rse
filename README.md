@@ -1,13 +1,11 @@
 # pasmnmrse
 
-Tools to support the **PAS-effectmonitoring** assignment for the INBO
-Research Software Engineer selection.
+Tools to support the **PAS-effectmonitoring** assignment for the INBO Research Software Engineer selection.
 
 This package provides reusable functions to:
 
 -   Read spatial sample datasets from different *poc* versions
--   Filter by meetnet (`scheme`) and waterhuishoudingsklassen
-    (`hydr_class`)
+-   Filter by meetnet (`scheme`) and waterhuishoudingsklassen (`hydr_class`)
 -   Summarise sample sizes by column (default `stratum`)
 -   Compare sample sizes across versions
 -   Visualise differences over versions with a dumbbell plot
@@ -28,14 +26,11 @@ Or load directly during development:
 devtools::load_all()
 ```
 
-------------------------------------------------------------------------
+### Required dependency: n2khab
 
-## Required dependency: n2khab
+This package depends on the INBO package n2khab to obtain hydrological classes for Natura 2000 habitat types.
 
-This package depends on the INBO package n2khab to obtain hydrological
-classes for Natura 2000 habitat types.
-
-Install it via INBO’s r-universe:
+Install it via:
 
 ``` r
 install.packages(
@@ -49,17 +44,32 @@ install.packages(
 
 ------------------------------------------------------------------------
 
+## Reviewer Quickstart
+
+To reproduce the requested comparison plot immediately:
+
+``` r
+library(pasmnmrse)
+
+create_graph_comparison(
+  version_a = "poc_0.13.1",
+  version_b = "poc_0.14.0",
+  scheme = "GW_03.3",
+  hydr_class = c("HC1", "HC12", "HC2")
+)
+```
+
+------------------------------------------------------------------------
+
 ## Downloading the PAS spatial sample data
 
-The PAS-effectmonitoring spatial sample datasets are provided in a
-public Google Drive folder.
+The PAS-effectmonitoring spatial sample datasets are provided in a public Google Drive folder.
 
 You can obtain the data in two ways:
 
 ### Option 1 (recommended): Manual download
 
-The simplest and most robust approach is to download the Google Drive
-folder manually and place the extracted version folders inside:
+The simplest and most robust approach is to download the Google Drive folder manually and place the extracted version folders inside:
 
 ```         
 inst/extdata/
@@ -72,10 +82,7 @@ inst/extdata/poc_0.13.1/samples/spatial_samples.csv
 inst/extdata/poc_0.14.0/samples/spatial_samples.csv
 ```
 
-This approach avoids authentication issues and ensures the package runs
-on any machine.
-
-------------------------------------------------------------------------
+This approach avoids authentication issues and ensures the package runs on any machine.
 
 ### Option 2: Download via the provided helper function
 
@@ -85,8 +92,7 @@ The package includes a convenience function:
 download_all_poc_spatial_samples()
 ```
 
-This uses the optional dependency **googledrive** to download all
-required versions automatically.
+This uses the optional dependency **googledrive** to download all required versions automatically.
 
 Example usage can be found in:
 
