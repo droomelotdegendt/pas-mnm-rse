@@ -12,6 +12,23 @@ This package provides reusable functions to:
 
 ------------------------------------------------------------------------
 
+## Reviewer Quickstart
+
+To reproduce the requested comparison plot immediately:
+
+``` r
+library(pasmnmrse)
+
+create_graph_comparison(
+  version_a = "poc_0.13.1",
+  version_b = "poc_0.14.0",
+  scheme = "GW_03.3",
+  hydr_class = c("HC1", "HC12", "HC2")
+)
+```
+
+------------------------------------------------------------------------
+
 ## Installation
 
 Clone the repository and install locally:
@@ -39,23 +56,6 @@ install.packages(
     inbo = "https://inbo.r-universe.dev",
     CRAN = "https://cloud.r-project.org"
   )
-)
-```
-
-------------------------------------------------------------------------
-
-## Reviewer Quickstart
-
-To reproduce the requested comparison plot immediately:
-
-``` r
-library(pasmnmrse)
-
-create_graph_comparison(
-  version_a = "poc_0.13.1",
-  version_b = "poc_0.14.0",
-  scheme = "GW_03.3",
-  hydr_class = c("HC1", "HC12", "HC2")
 )
 ```
 
