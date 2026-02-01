@@ -1,11 +1,13 @@
 # pasmnmrse
 
-Tools to support the **PAS-effectmonitoring** assignment for the INBO Research Software Engineer selection.
+Tools to support the **PAS-effectmonitoring** assignment for the INBO
+Research Software Engineer selection.
 
 This package provides reusable functions to:
 
 -   Read spatial sample datasets from different *poc* versions
--   Filter by meetnet (`scheme`) and waterhuishoudingsklassen (`hydr_class`)
+-   Filter by meetnet (`scheme`) and waterhuishoudingsklassen
+    (`hydr_class`)
 -   Summarise sample sizes by column (default `stratum`)
 -   Compare sample sizes across versions
 -   Visualise differences over versions with a dumbbell plot
@@ -30,9 +32,10 @@ devtools::load_all()
 
 ## Required dependency: n2khab
 
-This package depends on the INBO package n2khab to obtain hydrological classes for Natura 2000 habitat types.
+This package depends on the INBO package n2khab to obtain hydrological
+classes for Natura 2000 habitat types.
 
-Install it via INBO's r-universe:
+Install it via INBO’s r-universe:
 
 ``` r
 install.packages(
@@ -48,26 +51,29 @@ install.packages(
 
 ## Downloading the PAS spatial sample data
 
-The PAS-effectmonitoring spatial sample datasets are provided in a public Google Drive folder.
+The PAS-effectmonitoring spatial sample datasets are provided in a
+public Google Drive folder.
 
 You can obtain the data in two ways:
 
 ### Option 1 (recommended): Manual download
 
-The simplest and most robust approach is to download the Google Drive folder manually and place the extracted version folders inside:
+The simplest and most robust approach is to download the Google Drive
+folder manually and place the extracted version folders inside:
 
 ```         
-data
+inst/extdata/
 ```
 
 For example:
 
 ```         
-data/poc_0.13.1/samples/spatial_samples.csv
-data/poc_0.14.0/samples/spatial_samples.csv
+inst/extdata/poc_0.13.1/samples/spatial_samples.csv
+inst/extdata/poc_0.14.0/samples/spatial_samples.csv
 ```
 
-This approach avoids authentication issues and ensures the package runs on any machine.
+This approach avoids authentication issues and ensures the package runs
+on any machine.
 
 ------------------------------------------------------------------------
 
@@ -79,7 +85,8 @@ The package includes a convenience function:
 download_all_poc_spatial_samples()
 ```
 
-This uses the optional dependency **googledrive** to download all required versions automatically.
+This uses the optional dependency **googledrive** to download all
+required versions automatically.
 
 Example usage can be found in:
 
@@ -113,7 +120,7 @@ download_all_poc_spatial_samples()
 
 ## Assignment
 
-The solution for both assignments can be found in the folder 'analysis':
+The solution for both assignments can be found in the folder ‘analysis’:
 
 -   01_run_assignment_1.R
 -   02_run_assignment_2.R
